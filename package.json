@@ -1,5 +1,5 @@
 {
-  "name": "calculator-simple",
+  "name": "calculator",
   "scripts": {
     "start": "webpack serve --open --config ./webpack.config.js --env mode=dev",
     "build": "webpack",
@@ -32,5 +32,8 @@
   "lint-staged": {
     "*.js": "eslint --cache --fix",
     "*.{js,css,md}": "prettier --write"
+  },
+  "dependencies": {
+    "globals": "^16.1.0"
   }
 }
