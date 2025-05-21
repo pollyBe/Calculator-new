@@ -100,6 +100,7 @@ footer {
 
 .calculator__display {
   display: flex;
+  flex-direction: column;
   justify-content: end;
   grid-column-start: 1;
   grid-column-end: -1;
@@ -110,7 +111,8 @@ footer {
   width: 100%;
   background-color: var(--display-background-color);
 }
-.calculator__display p {
+
+.calculator__result {
   color: var(--display-color);
   font-size: 3em;
   font-weight: bold;
@@ -170,4 +172,13 @@ sup {
   font-size: 1.5rem;
   font-weight: 600;
   cursor: pointer;
+}
+
+@media (max-width: 566px) {
+  html {
+    font-size: 14px;
+  }
+  body {
+    padding: 0;
+  }
 }
