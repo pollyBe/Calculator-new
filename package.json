@@ -1,20 +1,25 @@
 {
   "name": "calculator",
-  "scripts": {
-    "start": "webpack serve --open --config ./webpack.config.js --env mode=dev",
-    "build": "webpack",
-    "dev": "webpack serve --env development",
-    "prepare": "husky install",
-    "lint": "eslint 'src/**/*.{js}'",
-    "format": "prettier --write 'src/**/*.{js,json,md}'",
-    "lint:fix": "eslint --fix 'src/**/*.{js}'"
-  },
+"scripts": {
+  "start": "webpack serve --open --config ./webpack.config.js --env mode=dev",
+  "build": "webpack",
+  "dev": "webpack serve --env development",
+  "prepare": "husky install",
+  "lint": "eslint src/**/*.js",
+  "format": "prettier --write \"src/**/*.{js,json,md}\"",
+  "lint:fix": "eslint --fix src/**/*.js",
+  "test": "jest"
+},
   "devDependencies": {
+    "@babel/core": "^7.27.1",
+    "@babel/preset-env": "^7.27.2",
+    "babel-jest": "^29.7.0",
     "babel-loader": "^10.0.0",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^7.1.2",
     "eslint": "^9.27.0",
     "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-jest": "^28.11.0",
     "eslint-plugin-prettier": "^5.4.0",
     "eslint-webpack-plugin": "^5.0.1",
     "html-webpack-plugin": "^5.6.3",
@@ -35,5 +40,8 @@
   },
   "dependencies": {
     "globals": "^16.1.0"
+  },
+  "jest": {
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.js?$"
   }
 }

@@ -12,7 +12,7 @@ function multiply(a, b) {
 
 function divide(a, b) {
   if (b === 0) {
-    return NaN;
+    throw new Error();
   }
   return a / b;
 }
@@ -78,7 +78,9 @@ function sqrt(x) {
 }
 
 function cbrt(x) {
-  if (x === 0) return 0;
+  if (x === 0) {
+    return 0;
+  }
   let guess = x;
   let prevGuess;
 
@@ -98,8 +100,12 @@ function root(x, y) {
   if (x < 0 && y % 2 === 0) {
     return NaN;
   }
-  if (x === 0) return 0;
-  if (y === 1) return x;
+  if (x === 0) {
+    return 0;
+  }
+  if (y === 1) {
+    return x;
+  }
 
   let guess = x;
   let prevGuess;

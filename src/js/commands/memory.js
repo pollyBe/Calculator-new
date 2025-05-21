@@ -8,12 +8,16 @@ export class Memory {
   }
 
   add(val) {
-    if (isNaN(val)) return;
+    if (isNaN(val)) {
+      return;
+    }
     this.value += val;
   }
 
   subtract(val) {
-    if (isNaN(val)) return;
+    if (isNaN(val)) {
+      return;
+    }
     this.value -= val;
   }
 
