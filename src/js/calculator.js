@@ -14,9 +14,20 @@ export class Calculator {
     this.right = null;
     this.operator = null;
     this.result = null;
+    this.shouldResetInput = false;
   }
 
   inputNumber(num) {
+    if (this.shouldResetInput) {
+      if (this.operator === null) {
+        this.left = num;
+      } else {
+        this.right = num;
+      }
+      this.shouldResetInput = false;
+      return;
+    }
+
     if (this.operator === null) {
       this.left = (this.left ?? '') + num;
     } else {
@@ -25,10 +36,11 @@ export class Calculator {
   }
 
   setOperator(operatorFunc) {
-    if (this.operator && this.right !== null) {
+    if (this.left !== null && this.right !== null && this.operator) {
       this.count();
     }
     this.operator = operatorFunc;
+    this.shouldResetInput = true;
   }
 
   count() {
@@ -37,10 +49,13 @@ export class Calculator {
       const b = parseFloat(this.right);
       const command = new BinaryCommand(a, b, this.operator);
       const result = this.invoker.run(command);
+
       this.left = String(result);
       this.right = null;
       this.operator = null;
       this.result = result;
+      this.shouldResetInput = true;
+
       return result;
     }
     return this.left;
@@ -50,10 +65,13 @@ export class Calculator {
     const val = parseFloat(this.left ?? this.right ?? '0');
     const command = new UnaryCommand(val, operation);
     const result = this.invoker.run(command);
+
     this.left = String(result);
     this.right = null;
     this.operator = null;
     this.result = result;
+    this.shouldResetInput = true;
+
     return result;
   }
 
@@ -62,6 +80,7 @@ export class Calculator {
     this.right = null;
     this.operator = null;
     this.result = null;
+    this.shouldResetInput = false;
   }
 
   memoryClear() {
@@ -83,6 +102,7 @@ export class Calculator {
     } else {
       this.right = String(val);
     }
+    this.shouldResetInput = true;
     return val;
   }
 }

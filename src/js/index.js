@@ -17,8 +17,8 @@ function updateDisplay(override = null) {
   const right = calc.right ?? '';
   const expression = `${left} ${operatorSymbol} ${right}`.trim();
 
-  expressionEl.textContent = expression;
-  resultEl.textContent = override ?? ((calc.result ?? right) || left || '0');
+  expressionEl.textContent = override ?? expression;
+  resultEl.textContent = right || left || '0';
 }
 
 function getOperatorSymbol(op) {
@@ -50,11 +50,10 @@ document
 
       if (!isNaN(val) || val === '.') {
         calc.inputNumber(val);
+        updateDisplay();
       } else {
         handleOperation(val);
       }
-
-      updateDisplay();
     });
   });
 
@@ -120,12 +119,12 @@ function handleOperation(value) {
     case 'M-':
       calc.memorySubtract();
       break;
-    case 'MR': {
-      const memVal = calc.memoryRecall();
-      updateDisplay(memVal);
+    case 'MR':
+      calc.memoryRecall();
       break;
-    }
     default:
       break;
   }
+
+  updateDisplay();
 }
