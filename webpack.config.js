@@ -18,7 +18,7 @@ module.exports = (env) => ({
   mode: env.development ? 'development' : 'production',
   entry: path.resolve(__dirname, './src/js/index.js'),
   output: {
-    filename: 'main.js',
+    filename: 'index.js',
     path: path.resolve(__dirname, './dist'),
   },
   module: {
@@ -36,15 +36,14 @@ module.exports = (env) => ({
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({ Title: 'Calculator' }),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'index.html'),
+    }),
     new ESLintPlugin({
       extensions: ['js'],
       fix: true,
     }),
   ],
   devtool: 'source-map',
-  devServer: {
-    static: path.resolve(__dirname, './dist'),
-  },
   ...devServer(env.development),
 });

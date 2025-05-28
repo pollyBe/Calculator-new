@@ -1,11 +1,26 @@
 import '../styles/index.css';
-import { createLayout } from './UI/createLayout';
+// import { createLayout } from './UI/createLayout';
 import { Calculator } from './calculator';
 import * as math from './utils/math';
 
 const body = document.querySelector('body');
-body.classList.add('light-theme');
-createLayout();
+const themeButton = document.querySelector('.theme-button');
+
+themeButton.addEventListener('click', () => {
+  if (body.classList.contains('light-theme')) {
+    themeButton.textContent = 'Switch to Light Theme';
+    body.classList.remove('light-theme');
+    body.classList.add('dark-theme');
+  } else {
+    themeButton.textContent = 'Switch to Dark Theme';
+    body.classList.add('light-theme');
+    body.classList.remove('dark-theme');
+  }
+});
+
+const date = document.querySelector('.date');
+const currentYear = new Date().getFullYear();
+date.textContent = `${currentYear}`;
 
 const expressionEl = document.querySelector('.calculator__expression');
 const resultEl = document.querySelector('.calculator__result');
