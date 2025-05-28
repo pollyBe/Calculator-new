@@ -1,7 +1,7 @@
 # Calculator App
 
 1. Task: [Calculator](https://drive.google.com/file/d/15jVnBPXaZrjs99KOUxp4TGq6Inau6xq_/view)
-2. Deploy: [Calculator deploy](https://comforting-lily-20cab9.netlify.app/)
+2. Deploy: [Calculator deploy](https://stellular-sunshine-010169.netlify.app/)
 3. How to build this app locally:
 
 • Prerequisites:
@@ -65,10 +65,6 @@ Calculator-new/
 │   │   ├── commands/        # Command pattern logic — separates executable actions into command objects.
 │   │   │   ├── commands.js     # Core command definitions (e.g., execute/undo actions).
 │   │   │   └── memory.js       # Commands related to memory operations (M+, MR, MC, etc.).
-│   │   ├── UI/              # UI-related code — dynamic DOM creation and layout rendering.
-│   │   │   ├── createCalculatorUi.js   # Builds the full calculator UI programmatically.
-│   │   │   ├── createElement.js        # Helper functions for creating reusable DOM elements.
-│   │   │   └── createLayout.js         # Layout generator for positioning calculator buttons/UI.
 │   │   ├── utils/           # Utility logic — core math and calculator functionality.
 │   │   │   ├── math.js          # Basic math operation handlers (add, subtract, divide, etc.).
 │   │   │   └── calculator.js    # Manages calculator state and interaction with UI & commands.
@@ -82,6 +78,7 @@ Calculator-new/
 ├── .prettierrc              # Prettier formatting configuration.
 ├── babel.config.js          # Babel config — transpiles modern JS into browser-compatible code.
 ├── eslint.config.mjs        # ESLint configuration for maintaining code quality.
+├── .index.html              # Root HTML file with project DOM structure
 ├── package.json             # Project metadata and dependencies list.
 ├── package-lock.json        # Exact dependency versions for consistent installs.
 ├── README.md                # Overview, instructions, and usage examples.
