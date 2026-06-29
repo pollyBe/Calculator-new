@@ -101,3 +101,7 @@ Let me give you a bit more detail about a few of these elements:
 • webpack.config.js: With this File I Bundling all my Code
 
 This structure should make it easier to understand where different parts of the code live and find what you are looking for.
+
+<img width="1912" height="906" alt="image" src="https://github.com/user-attachments/assets/faa0a47a-9a2a-435f-8a79-e70a0a013a64" />
+
+
